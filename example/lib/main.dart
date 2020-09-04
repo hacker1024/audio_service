@@ -50,7 +50,7 @@ class MainScreen extends StatelessWidget {
               children: [
                 if (processingState == AudioProcessingState.none) ...[
                   audioPlayerButton(),
-                  textToSpeechButton(),
+                  if (!Platform.isMacOS) textToSpeechButton(),
                 ] else ...[
                   if (queue != null && queue.isNotEmpty)
                     Row(
