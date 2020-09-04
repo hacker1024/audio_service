@@ -796,6 +796,7 @@ class AudioService {
       'rewindInterval': rewindInterval.inMilliseconds,
     });
     _running = await _channel.invokeMethod("isRunning");
+    if (Platform.isMacOS) backgroundTaskEntrypoint();
     return success;
   }
 
