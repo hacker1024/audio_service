@@ -23,3 +23,5 @@ flutter:
         pluginClass: AudioServicePlugin
       ios:
         pluginClass: AudioServicePlugin
+      macos:
+        pluginClass: AudioServicePlugin
