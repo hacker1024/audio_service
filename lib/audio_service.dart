@@ -527,7 +527,7 @@ const String _CUSTOM_PREFIX = 'custom_';
 /// automatically.
 class AudioService {
   /// True if the background task runs in its own isolate, false if it doesn't.
-  static const usesIsolate = !(kIsWeb || Platform.isMacOS);
+  static bool get usesIsolate => !(kIsWeb || Platform.isMacOS);
 
   /// The root media ID for browsing media provided by the background
   /// task.
