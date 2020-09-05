@@ -162,7 +162,7 @@ static MPMediaItemArtwork* artwork = nil;
         [commandCenter.togglePlayPauseCommand addTarget:self action:@selector(togglePlayPause:)];
         // TODO: enable more commands
         // Language options
-        if (@available(iOS 9.0, *)) {
+        if (@available(iOS 9.0, macOS 10.12.2, *)) {
             [commandCenter.enableLanguageOptionCommand setEnabled:NO];
             [commandCenter.disableLanguageOptionCommand setEnabled:NO];
         }
@@ -474,7 +474,7 @@ static MPMediaItemArtwork* artwork = nil;
             // commandCenter.bookmarkCommand
             break;
         case ASeekTo:
-            if (@available(iOS 9.1, *)) {
+            if (@available(iOS 9.1, macOS 10.12.2, *)) {
                 if (enable) {
                     [commandCenter.changePlaybackPositionCommand addTarget:self action:@selector(changePlaybackPosition:)];
                 } else {
