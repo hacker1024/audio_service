@@ -382,8 +382,10 @@ static MPMediaItemArtwork* artwork = nil;
         if (mediaItem[@"duration"] != [NSNull null]) {
             nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = [NSNumber numberWithLongLong: ([mediaItem[@"duration"] longLongValue] / 1000)];
         }
-        if (artwork) {
-            nowPlayingInfo[MPMediaItemPropertyArtwork] = artwork;
+        if (@available(iOS 3.0, macOS 10.13.2, *)) {
+            if (artwork) {
+                nowPlayingInfo[MPMediaItemPropertyArtwork] = artwork;
+            }
         }
         nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = [NSNumber numberWithInt:([position intValue] / 1000)];
     }

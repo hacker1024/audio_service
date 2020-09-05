@@ -382,8 +382,10 @@ static MPMediaItemArtwork* artwork = nil;
         if (mediaItem[@"duration"] != [NSNull null]) {
             nowPlayingInfo[MPMediaItemPropertyPlaybackDuration] = [NSNumber numberWithLongLong: ([mediaItem[@"duration"] longLongValue] / 1000)];
         }
-        if (artwork) {
-            nowPlayingInfo[MPMediaItemPropertyArtwork] = artwork;
+        if (@available(iOS 3.0, macOS 10.13.2, *)) {
+            if (artwork) {
+                nowPlayingInfo[MPMediaItemPropertyArtwork] = artwork;
+            }
         }
         nowPlayingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = [NSNumber numberWithInt:([position intValue] / 1000)];
     }
@@ -431,7 +433,9 @@ static MPMediaItemArtwork* artwork = nil;
             if (rewindInterval.integerValue > 0) {
                 if (enable) {
                     [commandCenter.skipBackwardCommand addTarget: self action:@selector(skipBackward:)];
-                    commandCenter.skipBackwardCommand.preferredIntervals = @[rewindInterval];
+                    int rewindIntervalInSeconds = [rewindInterval intValue]/1000;
+                    NSNumber *rewindIntervalInSec = [NSNumber numberWithInt: rewindIntervalInSeconds];
+                    commandCenter.skipBackwardCommand.preferredIntervals = @[rewindIntervalInSec];
                 } else {
                     [commandCenter.skipBackwardCommand removeTarget:nil];
                 }
@@ -455,7 +459,9 @@ static MPMediaItemArtwork* artwork = nil;
             if (fastForwardInterval.integerValue > 0) {
                 if (enable) {
                     [commandCenter.skipForwardCommand addTarget: self action:@selector(skipForward:)];
-                    commandCenter.skipForwardCommand.preferredIntervals = @[fastForwardInterval];
+                    int fastForwardIntervalInSeconds = [fastForwardInterval intValue]/1000;
+                    NSNumber *fastForwardIntervalInSec = [NSNumber numberWithInt: fastForwardIntervalInSeconds];
+                    commandCenter.skipForwardCommand.preferredIntervals = @[fastForwardIntervalInSec];
                 } else {
                     [commandCenter.skipForwardCommand removeTarget:nil];
                 }
