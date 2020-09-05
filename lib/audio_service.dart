@@ -659,7 +659,7 @@ class AudioService {
           break;
       }
     });
-    if (!kIsWeb) {
+    if (AudioService.usesIsolate) {
       _customEventReceivePort = ReceivePort();
       _customEventSubscription = _customEventReceivePort.listen((event) {
         _customEventSubject.add(event);
@@ -760,7 +760,7 @@ class AudioService {
     _running = true;
     _afterStop = false;
     ui.CallbackHandle handle;
-    if (!kIsWeb) {
+    if (AudioService.usesIsolate) {
       handle = ui.PluginUtilities.getCallbackHandle(backgroundTaskEntrypoint);
       if (handle == null) {
         return false;
@@ -1447,7 +1447,7 @@ class AudioServiceBackground {
   /// SendPort/ReceivePort API. Please consult the relevant documentation for
   /// further information.
   static void sendCustomEvent(dynamic event) {
-    if (kIsWeb) {
+    if (!AudioService.usesIsolate) {
       AudioService._customEventSubject.add(event);
     } else {
       SendPort sendPort =
