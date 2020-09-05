@@ -403,8 +403,7 @@ static MPMediaItemArtwork* artwork = nil;
 - (void) updateControl:(enum MediaAction)action {
     MPRemoteCommand *command = commands[action];
     if (command == [NSNull null]) return;
-    int actionBit = 1 << action;
-    BOOL enable = actionBits & actionBit;
+    BOOL enable = ((actionBits >> action) & 1);
     if (_controlsUpdated && enable == command.enabled) return;
     [command setEnabled:enable];
     switch (action) {
