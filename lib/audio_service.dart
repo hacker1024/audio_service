@@ -526,6 +526,9 @@ const String _CUSTOM_PREFIX = 'custom_';
 /// It is recommended to use [AudioServiceWidget] to manage this connection
 /// automatically.
 class AudioService {
+  /// True if the background task runs in its own isolate, false if it doesn't.
+  static const usesIsolate = !(kIsWeb || Platform.isMacOS);
+
   /// The root media ID for browsing media provided by the background
   /// task.
   static const String MEDIA_ROOT_ID = "root";
