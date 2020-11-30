@@ -515,55 +515,6 @@ class MediaItem {
 /// Studio](https://romannurik.github.io/AndroidAssetStudio/) to generate these
 /// different subdirectories for any standard material design icon.
 class MediaControl {
-  /// A default control for [MediaAction.stop].
-  static final stop = MediaControl(
-    androidIcon: 'drawable/audio_service_stop',
-    label: 'Stop',
-    action: MediaAction.stop,
-  );
-
-  /// A default control for [MediaAction.pause].
-  static final pause = MediaControl(
-    androidIcon: 'drawable/audio_service_pause',
-    label: 'Pause',
-    action: MediaAction.pause,
-  );
-
-  /// A default control for [MediaAction.play].
-  static final play = MediaControl(
-    androidIcon: 'drawable/audio_service_play_arrow',
-    label: 'Play',
-    action: MediaAction.play,
-  );
-
-  /// A default control for [MediaAction.rewind].
-  static final rewind = MediaControl(
-    androidIcon: 'drawable/audio_service_fast_rewind',
-    label: 'Rewind',
-    action: MediaAction.rewind,
-  );
-
-  /// A default control for [MediaAction.skipToNext].
-  static final skipToNext = MediaControl(
-    androidIcon: 'drawable/audio_service_skip_next',
-    label: 'Next',
-    action: MediaAction.skipToNext,
-  );
-
-  /// A default control for [MediaAction.skipToPrevious].
-  static final skipToPrevious = MediaControl(
-    androidIcon: 'drawable/audio_service_skip_previous',
-    label: 'Previous',
-    action: MediaAction.skipToPrevious,
-  );
-
-  /// A default control for [MediaAction.fastForward].
-  static final fastForward = MediaControl(
-    androidIcon: 'drawable/audio_service_fast_forward',
-    label: 'Fast Forward',
-    action: MediaAction.fastForward,
-  );
-
   /// A reference to an Android icon resource for the control (e.g.
   /// `"drawable/ic_action_pause"`)
   final String androidIcon;
@@ -579,6 +530,62 @@ class MediaControl {
     @required this.label,
     @required this.action,
   });
+
+  /// A default control for [MediaAction.stop].
+  const MediaControl.stop()
+      : this(
+          androidIcon: 'drawable/audio_service_stop',
+          label: 'Stop',
+          action: MediaAction.stop,
+        );
+
+  /// A default control for [MediaAction.pause].
+  const MediaControl.pause()
+      : this(
+          androidIcon: 'drawable/audio_service_pause',
+          label: 'Pause',
+          action: MediaAction.pause,
+        );
+
+  /// A default control for [MediaAction.play].
+  const MediaControl.play()
+      : this(
+          androidIcon: 'drawable/audio_service_play_arrow',
+          label: 'Play',
+          action: MediaAction.play,
+        );
+
+  /// A default control for [MediaAction.rewind].
+  const MediaControl.rewind()
+      : this(
+          androidIcon: 'drawable/audio_service_fast_rewind',
+          label: 'Rewind',
+          action: MediaAction.rewind,
+        );
+
+  /// A default control for [MediaAction.skipToNext].
+  const MediaControl.skipToNext()
+      : this(
+          androidIcon: 'drawable/audio_service_skip_next',
+          label: 'Next',
+          action: MediaAction.skipToNext,
+        );
+
+  /// A default control for [MediaAction.skipToPrevious].
+  const MediaControl.skipToPrevious()
+      : this(
+          androidIcon: 'drawable/audio_service_skip_previous',
+          label: 'Previous',
+          action: MediaAction.skipToPrevious,
+        );
+
+  /// A default control for [MediaAction.fastForward].
+  const MediaControl.fastForward()
+      : this(
+          androidIcon: 'drawable/audio_service_fast_forward',
+          label: 'Fast Forward',
+          action: MediaAction.fastForward,
+        );
 }
 
 const MethodChannel _channel =
