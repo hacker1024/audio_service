@@ -516,49 +516,49 @@ class MediaItem {
 /// different subdirectories for any standard material design icon.
 class MediaControl {
   /// A default control for [MediaAction.stop].
-  static final stop = MediaControl(
+  static const stop = MediaControl(
     androidIcon: 'drawable/audio_service_stop',
     label: 'Stop',
     action: MediaAction.stop,
   );
 
   /// A default control for [MediaAction.pause].
-  static final pause = MediaControl(
+  static const pause = MediaControl(
     androidIcon: 'drawable/audio_service_pause',
     label: 'Pause',
     action: MediaAction.pause,
   );
 
   /// A default control for [MediaAction.play].
-  static final play = MediaControl(
+  static const play = MediaControl(
     androidIcon: 'drawable/audio_service_play_arrow',
     label: 'Play',
     action: MediaAction.play,
   );
 
   /// A default control for [MediaAction.rewind].
-  static final rewind = MediaControl(
+  static const rewind = MediaControl(
     androidIcon: 'drawable/audio_service_fast_rewind',
     label: 'Rewind',
     action: MediaAction.rewind,
   );
 
   /// A default control for [MediaAction.skipToNext].
-  static final skipToNext = MediaControl(
+  static const skipToNext = MediaControl(
     androidIcon: 'drawable/audio_service_skip_next',
     label: 'Next',
     action: MediaAction.skipToNext,
   );
 
   /// A default control for [MediaAction.skipToPrevious].
-  static final skipToPrevious = MediaControl(
+  static const skipToPrevious = MediaControl(
     androidIcon: 'drawable/audio_service_skip_previous',
     label: 'Previous',
     action: MediaAction.skipToPrevious,
   );
 
   /// A default control for [MediaAction.fastForward].
-  static final fastForward = MediaControl(
+  static const fastForward = MediaControl(
     androidIcon: 'drawable/audio_service_fast_forward',
     label: 'Fast Forward',
     action: MediaAction.fastForward,
